@@ -5,12 +5,12 @@
 }
 
 .dialogsItems {
-    padding: 10px;
+    color: white;
+    text-decoration: none;
 }
 
-.active {
+.dialogsItems a.activeLink {
     color: gold;
-    font-weight: bold;
 }
 
 .messages {
