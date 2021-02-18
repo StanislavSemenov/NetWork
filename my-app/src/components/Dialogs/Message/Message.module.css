@@ -4,13 +4,6 @@
     color: white
 }
 
-.messages {
-    padding: 10px;
-    color: white;
-    font-stretch: ultra-condensed;
-    font-style: inherit;
-}
-
 .dialog {
     font-family: Arial;
     line-height: 150%;

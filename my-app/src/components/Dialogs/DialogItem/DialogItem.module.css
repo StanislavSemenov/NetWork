@@ -1,0 +1,8 @@
+.dialogsItems {
+    color: white;
+    text-decoration: none;
+}
+
+.dialogsItems a.activeLink {
+    color: gold;
+}
