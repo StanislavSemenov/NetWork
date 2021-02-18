@@ -9,23 +9,15 @@ import Message from './Message/Message';
     <Message />
 </div>
 
+
 const Dialogs = (props) => {
 
-    let dialogsData = [
-        { id: 1, name: 'Stas' },
-        { id: 2, name: 'Slava' },
-        { id: 3, name: 'Stason' },
-    ]
+    /*данные из index.js через props*/
+    let dialogsData = props.dialogsProps.appProps.dialogsArray
+    let messageData = props.dialogsProps.appProps.messagesArray
+    /* обновленние массивов через map*/
     let dialogsArray = [dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />)]
-
-    let messageData = [
-        { id: 1, message: 'Hi', likesCount: '10' },
-        { id: 2, message: 'Yo', likesCount: '15' },
-        { id: 3, message: 'Yo', likesCount: '15' },
-    ]
-
-    let messageArray = [messageData.map(message => <Message message={message.message} />)
-    ]
+    let messageArray = [messageData.map(message => <Message message={message.message} />)]
 
     return (
         <div className={classes.dialogs}>

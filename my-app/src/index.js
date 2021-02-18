@@ -4,8 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+/*ввод диалогов*/
+let dialogsData = [
+    { id: 1, name: 'Stas' },
+    { id: 2, name: 'Slava' },
+    { id: 3, name: 'Stason' },
+]
+/*ввод сообщений диалогов */
+let messageData = [
+    { id: 1, message: 'Hi', likesCount: '10' },
+    { id: 2, message: 'Yo', likesCount: '15' },
+    { id: 3, message: 'Yo', likesCount: '15' },
+]
+let props = { dialogsArray: dialogsData, messagesArray: messageData }
 ReactDOM.render(
-    <App />, document.getElementById('root'));
+    <App appProps={props} />, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function to
 // log results (for example: reportWebVitals(console.log)) or send to an
