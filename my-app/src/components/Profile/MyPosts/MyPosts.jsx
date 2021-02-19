@@ -4,11 +4,9 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
 
-    let postData = props.myPostProps.profilePostProps.appProps.postData
-    let postsArray = [postData.map((post) => <Post message={post.message} likesCount={post.likesCount} />)]
+    let postsArray = [props.posts.map((post) => <Post message={post.message} likesCount={post.likesCount} />)]
 
     return (
-
         <div className={classes.postsBlock}>
             <h23>My Posts</h23>
             <div >
