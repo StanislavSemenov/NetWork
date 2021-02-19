@@ -16,7 +16,14 @@ let messageData = [
     { id: 2, message: 'Yo', likesCount: '15' },
     { id: 3, message: 'Yo', likesCount: '15' },
 ]
-let props = { dialogsArray: dialogsData, messagesArray: messageData }
+/*ввод постов */
+let postData = [
+    { id: 1, message: 'Hi, Stanislav', likesCount: '10' },
+    { id: 2, message: 'Hello, Bro   ', likesCount: '15' },
+]
+
+let props = { dialogsArray: dialogsData, messagesArray: messageData, postData }
+
 ReactDOM.render(
     <App appProps={props} />, document.getElementById('root'));
 
