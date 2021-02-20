@@ -8,9 +8,9 @@ import Navbar from './components/Navbar/Navbar';
 import News from './components/Navbar/News/News';
 import Settings from './components/Navbar/Settings/Settings';
 import Profile from './components/Profile/Profile';
+import Friends from './components/Sitebar/Friends/Friends';
 
 const App = (props) => {
-
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
@@ -18,11 +18,12 @@ const App = (props) => {
                 <Navbar />
 
                 <div className='app-wrapper-content'>
-                    <Route exact path='/profile' render={() => <Profile posts={props.posts} />} />
-                    <Route exact path='/messages' render={() => <Dialogs dialogs={props.dialogs} messages={props.messages} />} />
+                    <Route exact path='/profile' render={() => <Profile state={props.state.profilePage} />} />
+                    <Route exact path='/messages' render={() => <Dialogs state={props.state.dialogsPage} />} />
                     <Route exact path='/news' render={News} />
                     <Route exact path='/music' render={Music} />
                     <Route exact path='/setting' render={Settings} />
+                    <Route exact path='/friends' render={() => <Friends state={props.state.siteBar} />} />
 
 
                 </div>

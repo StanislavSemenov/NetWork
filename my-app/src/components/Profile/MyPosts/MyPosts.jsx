@@ -4,6 +4,7 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
 
+
     let postsArray = [props.posts.map((post) => <Post message={post.message} likesCount={post.likesCount} />)]
 
     return (
