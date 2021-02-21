@@ -10,6 +10,7 @@ import Settings from './components/Navbar/Settings/Settings';
 import Profile from './components/Profile/Profile';
 import Friends from './components/Sitebar/Friends/Friends';
 
+
 const App = (props) => {
     return (
         <BrowserRouter>

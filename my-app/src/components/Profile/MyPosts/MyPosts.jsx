@@ -4,8 +4,13 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
 
-
     let postsArray = [props.posts.map((post) => <Post message={post.message} likesCount={post.likesCount} />)]
+
+    let newPostElement = React.createRef()
+
+    let addPost = () => {
+        let text = newPostElement.current.value;
+    }
 
     return (
         <div className={classes.postsBlock}>
@@ -15,7 +20,7 @@ const MyPosts = (props) => {
                     <textarea></textarea>
                 </div>
                 <div>
-                    <button>Add post</button>
+                    <button onClick={addPost}>  Add post</button>
                 </div>
             </div>
 

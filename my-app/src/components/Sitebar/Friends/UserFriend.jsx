@@ -9,7 +9,7 @@ const UserFriend = (props) => {
 
         <div className={classes.item}>
             <NavLink to={path} activeClassName={classes.activeLink}>
-                <img src={props.avaFriend} />{props.nameFriend}{props.surnameFriends}</NavLink>
+                <img src={props.avaFriend} />{props.nameFriend} {props.surnameFriends}</NavLink>
         </div>
     )
 }

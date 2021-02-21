@@ -3,6 +3,6 @@
     text-decoration: none;
 }
 
-.dialogsItems a.activeLink {
+.dialogsItems .activeLink {
     color: gold;
 }
