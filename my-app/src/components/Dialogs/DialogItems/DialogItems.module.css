@@ -1,8 +1,8 @@
-.dialogsItems {
+.dialogsItems a {
     color: white;
     text-decoration: none;
 }
 
-.dialogsItems .activeLink {
+.dialogsItems a.activeLink {
     color: gold;
 }
