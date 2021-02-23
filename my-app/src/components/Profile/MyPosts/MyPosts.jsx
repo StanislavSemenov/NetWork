@@ -5,19 +5,20 @@ import Post from './Post/Post';
 const MyPosts = (props) => {
 
     let postsArray = [props.posts.map((post) => <Post message={post.message} likesCount={post.likesCount} />)]
-
-    let newPostElement = React.createRef()
-
+    let newPostElement = React.createRef() //создаем ссылку на js(textarea)
     let addPost = () => {
-        let text = newPostElement.current.value;
-    }
 
+        let text = newPostElement.current.value;// выбираем ссылку из DOM на значение, введенное в textarea
+        props.addPost(text)
+        newPostElement.current.value = '';
+
+    }
     return (
         <div className={classes.postsBlock}>
             <h23>My Posts</h23>
             <div >
                 <div>
-                    <textarea></textarea>
+                    <textarea ref={newPostElement}></textarea>  { /* берем ссылку напрямую с DOM исохраняем*/}
                 </div>
                 <div>
                     <button onClick={addPost}>  Add post</button>
@@ -26,6 +27,7 @@ const MyPosts = (props) => {
 
             <div className={classes.posts}>
                 {postsArray}
+
             </div>
         </div>
     );

@@ -1,8 +1,9 @@
 import React from 'react';
+
 import classes from './Post.module.css';
 
 const Post = (props) => {
-
+    debugger
     return (
         <div className={classes.item}>
             <img src="http://archilab.online/images/1/123.jpg" />{props.message}
@@ -11,6 +12,7 @@ const Post = (props) => {
             </div>
         </div>
     )
+
 
 }
 export default Post;
