@@ -3,7 +3,6 @@ let renderEntireTree = () => {
     console.log('State changed')
 }
 
-
 let state = {
     dialogsPage: {
         dialogs: [
@@ -39,14 +38,12 @@ let state = {
     }
 }
 export let addPost = () => {
-    debugger
+
     let newPost = {
         id: 3,
         message: state.profilePage.newPostText,
         likesCount: 0
     };
-
-
     state.profilePage.posts.push(newPost)
     renderEntireTree(state);
 }

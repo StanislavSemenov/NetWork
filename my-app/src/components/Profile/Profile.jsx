@@ -6,7 +6,6 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 const Profile = (props) => {
 
     return (
-
         <div >
             <ProfileInfo />
             <MyPosts
@@ -14,11 +13,8 @@ const Profile = (props) => {
                 addPost={props.addPost}
                 newPostText={props.profilePage.newPostText}
                 updateNewPostText={props.updateNewPostText}
-
             />
         </div>
-
     )
-
 }
 export default Profile;
