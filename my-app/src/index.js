@@ -1,11 +1,29 @@
-import state from './Redux/State';
-import { RenderEntireTree } from './Render';
+import { BrowserRouter } from 'react-router-dom';
+import state, { subscribe } from './Redux/State';
 import reportWebVitals from './reportWebVitals';
-RenderEntireTree(state)
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import { addPost, updateNewPostText } from './Redux/State';
 
 
+
+export let renderEntireTree = (state) => {
+    ReactDOM.render(
+        <BrowserRouter>
+            <App
+                state={state}
+                addPost={addPost}
+                updateNewPostText={updateNewPostText}
+            />
+        </BrowserRouter>,
+        document.getElementById('root'));
+}
+renderEntireTree(state);
+subscribe(renderEntireTree);
+
+reportWebVitals();
 // If you want to start measuring performance in your app, pass a function to
 // log results (for example: reportWebVitals(console.log)) or send to an
 // analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-
-reportWebVitals();
