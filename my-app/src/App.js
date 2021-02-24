@@ -1,5 +1,4 @@
 import { BrowserRouter, Route } from 'react-router-dom';
-
 import './App.css';
 import Header from './components//Header/Header';
 import Dialogs from './components/Dialogs/Dialogs';
@@ -21,8 +20,10 @@ const App = (props) => {
                 <div className='app-wrapper-content'>
                     <Route exact path='/profile' render={() =>
                         <Profile
-                            state={props.state.profilePage}
+                            profilePage={props.state.profilePage}
                             addPost={props.addPost}
+                            updateNewPostText={props.updateNewPostText}
+
                         />} />
                     <Route exact path='/messages' render={() => <Dialogs state={props.state.dialogsPage} />} />
                     <Route exact path='/news' render={News} />
