@@ -1,6 +1,4 @@
 import React from 'react';
-import { NavLink, Route, BrowserRouter } from 'react-router-dom';
-import DialogUser from './Dialog/DialogUser';
 import DialogItems from './DialogItems/DialogItems';
 import classes from './Dialogs.module.css'
 import Message from './Message/Message';
@@ -8,9 +6,7 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
 
-    /* обновленние массивов через map*/
-    let dialogsArray = [props.state.dialogs.map(dialog => <DialogItems name={dialog.name} id={dialog.id} />)]
-    let messageArray = [props.state.messages.map(message => <Message message={message.message} />)]
+    let dialogsArray = [props.dialogsPage.dialogs.map((dialog) => <DialogItems name={dialog.name} id={dialog.id} />)]
 
     return (
 
@@ -19,7 +15,12 @@ const Dialogs = (props) => {
                 {dialogsArray}
             </div>
             <div className={classes.messages} >
-                {messageArray}
+
+                < Message
+                    dialogsPage={props.dialogsPage}
+                    dispatch={props.dispatch}
+                />
+
             </div>
 
         </div>

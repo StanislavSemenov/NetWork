@@ -5,6 +5,7 @@ import classes from './DialogItems.module.css'
 
 const DialogItems = (props) => {
     let path = '/dialogs' + props.id;
+
     return (
         <div className={classes.dialogsItems}>
             <NavLink to={path} activeClassName={classes.activeLink}>

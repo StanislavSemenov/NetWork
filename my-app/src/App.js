@@ -11,6 +11,7 @@ import Friends from './components/Sitebar/Friends/Friends';
 
 
 const App = (props) => {
+
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
@@ -22,10 +23,12 @@ const App = (props) => {
                         <Profile
                             profilePage={props.state.profilePage}
                             dispatch={props.dispatch}
-
-
                         />} />
-                    <Route exact path='/messages' render={() => <Dialogs state={props.state.dialogsPage} />} />
+                    <Route exact path='/messages' render={() =>
+                        <Dialogs
+                            dialogsPage={props.state.dialogsPage}
+                            dispatch={props.dispatch}
+                        />} />
                     <Route exact path='/news' render={News} />
                     <Route exact path='/music' render={Music} />
                     <Route exact path='/setting' render={Settings} />

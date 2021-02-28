@@ -1,23 +1,42 @@
 import React from 'react';
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../../Redux/State';
+import DialogUser from '../Dialog/DialogUser';
 import classes from './Message.module.css'
 
 const Message = (props) => {
+    debugger
+    let MessageElements = [props.dialogsPage.messages.map((message) => <DialogUser message={message.message} likesCount={message.likesCount} />)]
 
     let newMessageElement = React.createRef()
-    let AddMessage = () => {
-        let textMessage = newMessageElement.current.value;// выбираем ссылку из DOM на значение, введенное в textarea
-        alert(textMessage)
+
+    let addMessage = () => { props.dispatch(addMessageActionCreator()) }
+
+    let onMessageChange = () => {
+        debugger
+        let text = newMessageElement.current.value
+        let action = updateNewMessageTextActionCreator(text)
+        props.dispatch(action);
     }
-
-
     return (
-        <div className={classes.dialog}>{props.message}
-            <textarea ref={newMessageElement}></textarea>
-            <button onClick={AddMessage}> Add Message</button>
-        </div>
-    )
-}
+        <div className={classes.dialogs}>
+            <h23>Messages</h23>
+            <div >
+                <div>
+                    <textarea onChange={onMessageChange} ref={newMessageElement}
+                        value={props.dialogsPage.newMessageText} />
+                </div>
+                <div>
+                    <button onClick={addMessage}>  Add message</button>
+                </div>
+            </div>
 
+            <div className={classes.posts}>
+
+                {MessageElements}
+            </div>
+        </div >
+    );
+}
 
 export default Message;
 

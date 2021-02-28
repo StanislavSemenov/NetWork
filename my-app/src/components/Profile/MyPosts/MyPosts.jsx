@@ -5,23 +5,19 @@ import Post from './Post/Post';
 
 
 const MyPosts = (props) => {
-
+    debugger
     let postsElements = [props.posts.map((post) => <Post message={post.message} likesCount={post.likesCount} />)]
 
     let newPostElement = React.createRef()
 
-    let addPost = () => {
-        debugger
-        props.dispatch(addPostActionCreator())
-    }
+    let addPost = () => { props.dispatch(addPostActionCreator()) }
+
 
     let onPostChange = () => {
-        debugger
         let text = newPostElement.current.value
         let action = updateNewPostTextActionCreator(text)
         props.dispatch(action);
     }
-
     return (
         <div className={classes.postsBlock}>
             <h23>My Posts</h23>
