@@ -7,9 +7,6 @@ const DialogUser = (props) => {
             <div> {props.message}</div>
             <div> {props.likesCount}</div>
         </div>
-
     )
-
 }
-
 export default DialogUser;

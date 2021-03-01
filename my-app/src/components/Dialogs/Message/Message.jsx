@@ -1,18 +1,14 @@
 import React from 'react';
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../../Redux/State';
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../../Redux/dialogsReducer';
 import DialogUser from '../Dialog/DialogUser';
 import classes from './Message.module.css'
 
 const Message = (props) => {
-    debugger
+
     let MessageElements = [props.dialogsPage.messages.map((message) => <DialogUser message={message.message} likesCount={message.likesCount} />)]
-
     let newMessageElement = React.createRef()
-
     let addMessage = () => { props.dispatch(addMessageActionCreator()) }
-
     let onMessageChange = () => {
-        debugger
         let text = newMessageElement.current.value
         let action = updateNewMessageTextActionCreator(text)
         props.dispatch(action);
@@ -29,9 +25,7 @@ const Message = (props) => {
                     <button onClick={addMessage}>  Add message</button>
                 </div>
             </div>
-
             <div className={classes.posts}>
-
                 {MessageElements}
             </div>
         </div >
