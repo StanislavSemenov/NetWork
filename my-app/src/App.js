@@ -10,6 +10,7 @@ import Profile from './components/Profile/Profile';
 import Friends from './components/Sidebar/Friends/Friends';
 
 const App = (props) => {
+
     return (
         <div className='app-wrapper'>
             <Header />
@@ -17,13 +18,11 @@ const App = (props) => {
             <div className='app-wrapper-content'>
                 <Route exact path='/profile' render={() =>
                     <Profile
-                        profilePage={props.state.profilePage}
-                        dispatch={props.dispatch}
+                        store={props.store}
                     />} />
                 <Route exact path='/messages' render={() =>
                     <Dialogs
-                        dialogsPage={props.state.dialogsPage}
-                        dispatch={props.dispatch}
+                        store={props.store}
                     />} />
                 <Route exact path='/news' render={News} />
                 <Route exact path='/music' render={Music} />

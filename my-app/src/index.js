@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import store from './Redux/Store';
+import store from './Redux/ReduxStore';
 import reportWebVitals from './reportWebVitals';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -9,16 +9,22 @@ import App from './App';
 export let renderEntireTree = (state) => {
 
     ReactDOM.render(
+
         <BrowserRouter>
             <App
-                state={state}
                 dispatch={store.dispatch.bind(store)}
+                store={store}
+
             />
         </BrowserRouter>,
         document.getElementById('root'));
 }
 renderEntireTree(store.getState());
-store.subscribe(renderEntireTree);
+
+store.subscribe(() => {
+    let state = store.getState()
+    renderEntireTree(state)
+});
 
 reportWebVitals();
 
