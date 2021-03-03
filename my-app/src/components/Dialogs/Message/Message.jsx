@@ -4,7 +4,7 @@ import classes from './Message.module.css'
 
 
 const Message = (props) => {
-
+    debugger
 
     let MessageElements = [props.state.messages.map((message) => <DialogUser message={message.message} likesCount={message.likesCount} />)]
     let newMessageElement = React.createRef()
@@ -17,7 +17,7 @@ const Message = (props) => {
         let text = newMessageElement.current.value
         props.updateNewMessageText(text)
     }
-
+    debugger
     return (
         <div className={classes.dialogs}>
 

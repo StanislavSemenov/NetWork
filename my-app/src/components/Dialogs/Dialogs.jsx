@@ -5,15 +5,16 @@ import MessageContainer from './Message/MessageContainer';
 
 const Dialogs = (props) => {
 
-    let state = props.store.getState().dialogsPage
-    let dialogsArray = [state.dialogs.map((dialog) => <DialogItems name={dialog.name} id={dialog.id} />)]
+    /* let state = props.store.getState().dialogsPage
+     let dialogsArray = [state.dialogs.map((dialog) => <DialogItems name={dialog.name} id={dialog.id} />)]
+     */
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialog}>
-                {dialogsArray}
+                {/*{dialogsArray}*/}
             </div>
             <div className={classes.messages} >
-                < MessageContainer store={props.store} />
+                < MessageContainer />
 
             </div>
         </div>
