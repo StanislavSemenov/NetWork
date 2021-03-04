@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import StoreContext from './StoreContext';
+import { Provider } from 'react-redux';
 
 
 export let renderEntireTree = (state) => {
@@ -13,11 +13,9 @@ export let renderEntireTree = (state) => {
     ReactDOM.render(
 
         <BrowserRouter>
-            <StoreContext.Provider value={store}>
-                <App //dispatch={store.dispatch.bind(store)} store={store}
-                />
-
-            </StoreContext.Provider>
+            <Provider store={store}>
+                <App />
+            </Provider>
 
         </BrowserRouter>,
         document.getElementById('root'));

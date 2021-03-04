@@ -4,20 +4,21 @@ import classes from './Message.module.css'
 
 
 const Message = (props) => {
-    debugger
 
-    let MessageElements = [props.state.messages.map((message) => <DialogUser message={message.message} likesCount={message.likesCount} />)]
+    let MessageElements = [props.dialogsPage.messages.map((message) => <DialogUser message={message.message} likesCount={message.likesCount} />)]
     let newMessageElement = React.createRef()
 
     let AddMessage = () => {
+
         props.addMessage()
     }
 
     let onMessageChange = () => {
+
         let text = newMessageElement.current.value
         props.updateNewMessageText(text)
     }
-    debugger
+
     return (
         <div className={classes.dialogs}>
 
@@ -25,7 +26,7 @@ const Message = (props) => {
             <div >
                 <div>
                     <textarea onChange={onMessageChange} ref={newMessageElement}
-                        value={props.state.newMessageText} />
+                        value={props.dialogsPage.newMessageText} />
                 </div>
                 <div>
                     <button onClick={AddMessage}>  Add message</button>
