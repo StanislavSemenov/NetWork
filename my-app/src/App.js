@@ -10,7 +10,6 @@ import Profile from './components/Profile/Profile';
 import Friends from './components/Sidebar/Friends/Friends';
 
 const App = () => {
-    debugger
     return (
         <div className='app-wrapper'>
             <Header />

@@ -7,7 +7,7 @@ import MessageContainer from './Message/MessageContainer';
 const Dialogs = () => {
     debugger
     let state = store.getState().dialogsPage //не правильно вызов Store напрямую (временно)
-    let dialogsArray = [state.dialogs.map((dialog) => <DialogItems name={dialog.name} id={dialog.id} />)]
+    let dialogsArray = state.dialogs.map((dialog) => <DialogItems name={dialog.name} id={dialog.id} key={dialog.id} />)
 
     return (
         <div className={classes.dialogs}>

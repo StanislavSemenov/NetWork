@@ -5,7 +5,7 @@ import classes from './Message.module.css'
 
 const Message = (props) => {
 
-    let MessageElements = [props.dialogsPage.messages.map((message) => <DialogUser message={message.message} likesCount={message.likesCount} />)]
+    let MessageElements = props.dialogsPage.messages.map((message) => <DialogUser message={message.message} likesCount={message.likesCount} key={message.id} />)
     let newMessageElement = React.createRef()
 
     let AddMessage = () => {
