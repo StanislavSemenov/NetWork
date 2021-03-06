@@ -1,0 +1,16 @@
+.users {
+    display: grid;
+    grid-template-columns: 1fr;
+    color: white
+}
+
+.user {
+    font-family: Arial;
+    line-height: 150%;
+}
+
+.item img {
+    width: 60px;
+    height: 80px;
+    border-radius: 20px;
+}

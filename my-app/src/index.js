@@ -9,7 +9,6 @@ import { Provider } from 'react-redux';
 
 
 export let renderEntireTree = (state) => {
-    debugger
     ReactDOM.render(
 
         <BrowserRouter>
