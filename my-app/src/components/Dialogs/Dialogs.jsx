@@ -4,9 +4,11 @@ import DialogItems from './DialogItems/DialogItems';
 import classes from './Dialogs.module.css'
 import MessageContainer from './Message/MessageContainer';
 
+
+//ВНИАНИЕ! Временно не правильно вызов Store напрямую (временно)
 const Dialogs = () => {
     debugger
-    let state = store.getState().dialogsPage //не правильно вызов Store напрямую (временно)
+    let state = store.getState().dialogsPage
     let dialogsArray = state.dialogs.map((dialog) => <DialogItems name={dialog.name} id={dialog.id} key={dialog.id} />)
 
     return (
