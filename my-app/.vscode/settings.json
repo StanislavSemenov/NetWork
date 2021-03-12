@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "ссылку"
-    ]
+    ],
+    "autoimport.filesToScan": "**/*.{ts,tsx,js,jsx}"
 }

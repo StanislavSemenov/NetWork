@@ -8,23 +8,17 @@ import App from './App';
 import { Provider } from 'react-redux';
 
 
-export let renderEntireTree = (state) => {
-    ReactDOM.render(
 
-        <BrowserRouter>
-            <Provider store={store}>
-                <App />
-            </Provider>
+ReactDOM.render(
 
-        </BrowserRouter>,
-        document.getElementById('root'));
-}
-renderEntireTree(store.getState());
+    <BrowserRouter>
+        <Provider store={store}>
+            <App />
+        </Provider>
 
-store.subscribe(() => {
-    let state = store.getState()
-    renderEntireTree(state)
-});
+    </BrowserRouter>,
+    document.getElementById('root'));
+
 
 reportWebVitals();
 
