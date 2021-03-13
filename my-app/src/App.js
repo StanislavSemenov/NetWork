@@ -1,8 +1,8 @@
 import { Route } from 'react-router-dom';
 import './App.css';
-import Header from './components//Header/Header';
 import Dialogs from './components/Dialogs/Dialogs';
 import UsersContainer from './components/Dialogs/Users/UsersContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
 import Music from './components/Navbar/Music/Music';
 import Navbar from './components/Navbar/Navbar';
 import News from './components/Navbar/News/News';
@@ -13,7 +13,7 @@ import Friends from './components/Sidebar/Friends/Friends';
 const App = () => {
     return (
         <div className='app-wrapper'>
-            <Header />
+            <HeaderContainer />
             <Navbar />
             <div className='app-wrapper-content'>
                 <Route path='/profile/:UserId?' render={() => <ProfileContainer />} />
