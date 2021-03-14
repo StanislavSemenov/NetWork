@@ -16,5 +16,6 @@
 }
 
 .selectPage {
-    font-weight: bold;
+    font-weight: 700;
+    margin: 8px;
 }
