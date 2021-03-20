@@ -4,6 +4,8 @@ import { follow, unfollow, setCurrentPage, toggleFolowingProgressing, getUsers }
     from '../../../Redux/UsersReducer';
 import Users from './Users';
 import Preloader from '../../Preloader/Preloader';
+import { withAuthRedirect } from '../../HOC/withAuthRedirect';
+import { compose } from 'redux';
 
 
 class UsersContainer extends React.Component {
@@ -46,11 +48,8 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,
-    {
-        follow, unfollow, setCurrentPage, toggleFolowingProgressing, getUsers
-    }
-)
-    (UsersContainer)
-
+export default compose(
+    connect(mapStateToProps, { follow, unfollow, setCurrentPage, toggleFolowingProgressing, getUsers }),
+    withAuthRedirect
+)(UsersContainer)
 

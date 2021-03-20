@@ -3,6 +3,7 @@ import './App.css';
 import Dialogs from './components/Dialogs/Dialogs';
 import UsersContainer from './components/Dialogs/Users/UsersContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/login/login';
 import Music from './components/Navbar/Music/Music';
 import Navbar from './components/Navbar/Navbar';
 import News from './components/Navbar/News/News';
@@ -25,6 +26,7 @@ const App = () => {
                 <Route exact path='/friends' render={() => <Friends //state={props.state.sideBar}                     
                 />} />
                 <Route exact path='/users' render={() => <UsersContainer />} />
+                <Route exact path='/login' render={() => <Login />} />
             </div>
         </div>
     )
