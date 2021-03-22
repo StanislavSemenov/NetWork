@@ -1,5 +1,8 @@
 .descriptionBlock {
     padding: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: xx-large;
 }
 
 .img {

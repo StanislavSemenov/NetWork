@@ -23,8 +23,24 @@ export const usersAPI = {
         return instance.post(`follow/${userId}`, {})
     },
     getProfile(userId) {
-        return instance.get(`Profile/${userId}`)
+        console.warn("API.Obsolete method. Please profileAPI object")
+        return profileAPI.getProfile(userId)
 
+    }
+
+}
+export const profileAPI = {
+
+    getProfile(userId) {
+        return instance.get(`Profile/` + userId)
+    },
+
+    getStatus(userId) {
+        return instance.get(`profile/status/` + userId)
+    },
+
+    updateStatus(status) {
+        return instance.put(`profile/status`, { status: status })
     }
 
 }
