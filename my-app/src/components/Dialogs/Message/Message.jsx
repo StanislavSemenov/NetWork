@@ -1,41 +1,52 @@
 import React from 'react';
 import DialogUser from '../Dialog/DialogUser';
 import classes from './Message.module.css'
+import { useForm } from "react-hook-form";
 
 
 const Message = (props) => {
 
-    let MessageElements = props.dialogsPage.messages.map((message) => <DialogUser message={message.message} likesCount={message.likesCount} key={message.id} />)
-    let newMessageElement = React.createRef()
+    let MessageElements = props.dialogsPage.messages
+        .map((message) =>
+            <DialogUser message={message.message}
+                likesCount={message.likesCount}
+                key={message.id}
+            />)
 
-    let AddMessage = () => {
+    const MessageForm = () => {
+        const { register, handleSubmit, errors } = useForm()
 
-        props.addMessage()
+        const onSubmit = (data) => {
+            props.addMessage(data.Message)
+        }
+
+        return (
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div>
+                    <input
+                        type='Message'
+                        placeholder='Message'
+                        name='Message'
+                        ref={register({ required: 'true', minLength: 3 })}
+                    />
+                </div>
+                {errors.Message && <p>Message in invalid</p>}
+
+                <div>
+                    <input type='submit' />
+                </div>
+            </form >
+        )
     }
-
-    let onMessageChange = () => {
-
-        let text = newMessageElement.current.value
-        props.updateNewMessageText(text)
-    }
-
     return (
         <div className={classes.dialogs}>
 
-            <h23>Messages</h23>
-            <div >
-                <div>
-                    <textarea onChange={onMessageChange} ref={newMessageElement}
-                        value={props.dialogsPage.newMessageText} />
-                </div>
-                <div>
-                    <button onClick={AddMessage}>  Add message</button>
-                </div>
-            </div>
+            <h1>Message</h1>
+            <MessageForm />
             <div className={classes.posts}>
                 {MessageElements}
-
             </div>
+
         </div >
     );
 }

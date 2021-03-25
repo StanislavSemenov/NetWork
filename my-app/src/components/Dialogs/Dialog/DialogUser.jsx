@@ -5,8 +5,8 @@ const DialogUser = (props) => {
 
     return (
         <div className={classes.dialogs}>
-            <div> {props.message}</div>
-            <div> {props.likesCount}</div>
+            <div>Message: {props.message}</div>
+            <div>Like: {props.likesCount}</div>
         </div>
     )
 }

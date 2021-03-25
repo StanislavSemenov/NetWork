@@ -1,7 +1,8 @@
 .dialogs {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    color: white
+    grid-template-columns: 1fr;
+    color: white;
+    margin: 5px 1em 0 auto
 }
 
 .messages {

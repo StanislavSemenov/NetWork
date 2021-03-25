@@ -12,3 +12,7 @@
   grid-area: c;
   background-color: rgb(110, 93, 209);
 }
+
+.preloader {
+  margin: auto;
+}

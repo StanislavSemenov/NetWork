@@ -9,7 +9,13 @@ import MessageContainer from './Message/MessageContainer';
 const Dialogs = () => {
 
     let state = store.getState().dialogsPage
-    let dialogsArray = state.dialogs.map((dialog) => <DialogItems name={dialog.name} id={dialog.id} key={dialog.id} />)
+    let dialogsArray = state.dialogs.
+        map((dialog) =>
+            <DialogItems
+                name={dialog.name}
+                id={dialog.id}
+                key={dialog.id}
+            />)
 
     return (
         <div className={classes.dialogs}>
