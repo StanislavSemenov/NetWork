@@ -2,7 +2,7 @@ import styles from './Users.module.css';
 import React from 'react';
 import UserPhoto from '../../../asseds/images/user.jpg'
 import { NavLink } from 'react-router-dom';
-import { usersAPI } from '../../api/api';
+
 
 let Users = (props) => {
 
@@ -15,7 +15,7 @@ let Users = (props) => {
         <div className={styles.user} >
             {pages.map(p => {
                 return <span key={p.id} className={props.currentPage === p && styles.selectPage}
-                    onClick={(e) => { props.onPageChanged(p) }}>{' '}{p} {' '}</span>
+                    onClick={(e) => { props.onPageChanged(p) }}>{' '} {p} {' '}</span>
             })}
         </div>
 

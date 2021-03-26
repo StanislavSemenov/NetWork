@@ -9,6 +9,13 @@
     line-height: 150%;
 }
 
+/* .userActive {
+    font-family: Arial;
+    line-height: 150%;
+    color: gold;
+}
+ */
+
 .item img {
     width: 60px;
     height: 60px;
@@ -18,4 +25,5 @@
 .selectPage {
     font-weight: 700;
     margin: 8px;
+    color: gold;
 }
