@@ -6,7 +6,7 @@ import { login, outMessagesServer } from './../../Redux/authReducer';
 
 
 const Login = (props) => {
-    debugger
+
     const { register, handleSubmit, errors } = useForm()
 
     const onSubmit = data => {
@@ -23,8 +23,9 @@ const Login = (props) => {
                     type='text'
                     placeholder='email'
                     name='email'
-                    ref={register}
+                    ref={register({ required: true })}
                 />
+                {errors.email && <p>Your input is required</p>}
             </div>
             <div>
                 <input

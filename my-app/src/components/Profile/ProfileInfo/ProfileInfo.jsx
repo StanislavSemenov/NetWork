@@ -1,51 +1,77 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './ProfileInfo.module.css';
 import Preloader from '../../Preloader/Preloader'
-import ProfileStatus from './ProfileStatus2';
 import userFoto from '../../../asseds/images/user.jpg'
 import ProfileStatusWithHook from './ProfileStatus';
-const ProfileInfo = (props) => {
+import { getByTitle } from '@testing-library/react';
+import ProfileDataForm from './ProfileDataForm';
 
-    if (!props.profile) {
+const ProfileInfo = ({ profile, savePhoto, status, updateStatus, isOwner, setProfile }) => {
+
+    let [editMode, setEditMode] = useState(false)
+
+    if (!profile) {
         return <Preloader />
     }
+    const onMainPhotoSelected = (e) => {
+
+        if (e.target.files.length) {
+            savePhoto(e.target.files[0])
+        }
+    }
+
     return (
         <div className={classes.descriptionBlock}>
-            <div><ProfileStatusWithHook status={props.status} updateStatus={props.updateStatus} /></div>
+            <div><ProfileStatusWithHook status={status} updateStatus={updateStatus} /></div>
             <div></div>
-            {/*  <div>
+            {/*   <div>
                 <img
                     src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg" />
             </div> */}
 
-
-
-
             <div className={classes.descriptionBlock}>
-                <img
-                    src={props.profile.photos.large || userFoto} />
+                <img src={profile.photos.large || userFoto} />
             </div>
-            <div>
-                <div>Name: {props.profile.fullName}</div>
-                <div>Status: {props.profile.aboutMe}</div>
+            <div>{isOwner && <input type={'file'} onChange={onMainPhotoSelected} />}</div>
 
-            </div>
-            <div>
-                <div>Contacts:</div>
-                <div>{props.profile.contacts.facebook}</div>
-                <div>{props.profile.contacts.vk}</div>
-                <div>{props.profile.contacts.twitter}</div>
-                <div>{props.profile.contacts.github}</div>
-
-            </div>
-            <div>
-                <div>Job:</div>
-                {props.profile.lookingForAJobDescription}
-
-            </div>
+            {editMode
+                ? <ProfileDataForm profile={profile} setProfile={setProfile} setEditMode={setEditMode} />
+                : <ProfileData
+                    profile={profile}
+                    isOwner={isOwner}
+                    goToEditMode={() => setEditMode(true)}
+                />}
 
         </div >
     )
+}
+
+
+
+const ProfileData = ({ profile, isOwner, goToEditMode }) => {
+    return <div>
+        {isOwner && <div><button onClick={goToEditMode}>Edit</button></div>}
+        <div>
+            <div><b>Name:</b> {profile.fullName}</div>
+            <div><b>AboutMe:</b> {profile.aboutMe}</div>
+            <div><b>Contacts: </b>{Object.keys(profile.contacts).map(key => {
+                return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]} />
+            })}
+            </div>
+        </div>
+        <div>
+            <b>Looking for a job: </b>
+            {profile.lookingForAJob
+                ? profile.lookingForAJobDescription
+                : 'no'
+            }
+        </div>
+    </div>
 
 }
+
+const Contact = ({ contactTitle, contactValue }) => {
+    return <div className={classes.contact}><b>{contactTitle}</b>: {contactValue} </div>
+}
+
 export default ProfileInfo;

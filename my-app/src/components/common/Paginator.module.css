@@ -1,0 +1,32 @@
+.users {
+    display: grid;
+    grid-template-columns: 1fr;
+    color: white;
+    margin: 10px;
+}
+
+.user {
+    font-family: Arial;
+    line-height: 150%;
+    color: white;
+    padding: 10px;
+}
+
+/* .userActive {
+    font-family: Arial;
+    line-height: 150%;
+    color: gold;
+}
+ */
+
+.item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
+
+.selectPage {
+    font-weight: bold;
+    margin: 8px;
+    color: gold;
+}

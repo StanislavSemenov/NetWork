@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 import { useForm } from 'react-hook-form'
-const MyPosts = (props) => {
+const MyPosts = React.memo(props => {
 
     let postsElements = props.posts
         .map((post) =>
@@ -47,5 +47,5 @@ const MyPosts = (props) => {
             </div>
         </div >
     );
-}
+})
 export default MyPosts;
